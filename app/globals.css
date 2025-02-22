@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #FF6B35;
+  --primary-light: #FF8B5E;
+  --primary-dark: #E54E1B;
+  --secondary: #2B2D42;
+  --secondary-light: #3D3F57;
+  --secondary-dark: #1A1B2E;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-gray-900 bg-white;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-[--primary] text-white hover:bg-[--primary-dark];
+  }
+
+  .btn-secondary {
+    @apply bg-[--secondary] text-white hover:bg-[--secondary-dark];
+  }
+
+  .btn-outline {
+    @apply border-2 border-[--primary] text-[--primary] hover:bg-[--primary] hover:text-white;
+  }
+
+  /* Sistema de títulos */
+  .section-subtitle {
+    @apply text-sm uppercase tracking-wider text-[--primary] font-medium mb-3;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-4 tracking-tight;
+  }
+
+  .section-title-wrapper {
+    @apply text-center mb-16;
+  }
+
+  .section-title-line {
+    @apply w-12 h-0.5 bg-[--primary] mx-auto opacity-50 mt-6;
+  }
+
+  .section-description {
+    @apply text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed mt-4;
+  }
+}
+
+/* Swiper customization */
+.swiper-pagination {
+  @apply bottom-4 !important;
+}
+
+.swiper-pagination-bullet {
+  @apply w-2.5 h-2.5 bg-[--primary] opacity-30 transition-all duration-300 !important;
+}
+
+.swiper-pagination-bullet-active {
+  @apply w-4 opacity-100 !important;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Asegurar que las imágenes de fondo cubran completamente su contenedor */
+.object-cover {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilos personalizados para aspectos específicos */
+.aspect-w-1 {
+  position: relative;
+  padding-bottom: 100%; /* Aspecto cuadrado 1:1 */
+}
+
+.aspect-h-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 24px !important;
+}
+
+/* Animación de desplazamiento continuo */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 8)); /* Ajusta según el número de imágenes originales */
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* Mejora para el contenedor del scroll */
+.scroll-container {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+} 
