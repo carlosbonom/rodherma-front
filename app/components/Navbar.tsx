@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import logoImg from '@/public/images/logo.png';
 
 const menuItems = [
   { label: 'Inicio', href: '/' },
@@ -39,11 +40,12 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="relative flex items-center">
             <Image
-              src="https://firebasestorage.googleapis.com/v0/b/api-portafolio-f576a.appspot.com/o/Rodherma%2Fimage.png?alt=media&token=ba8debf2-f754-4c21-be40-389fbbff2c71"
+              src={logoImg}
               alt="RodherMa"
               width={40}
               height={40}
-              className="w-auto h-8 sm:h-10"
+              className="w-auto h-14 sm:h-16"
+              priority
             />
             {/* <span className={`ml-2 font-bold text-lg sm:text-xl ${
               isHome ? (isScrolled ? 'text-gray-900' : 'text-white') : 'text-gray-900'

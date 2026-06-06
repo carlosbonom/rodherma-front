@@ -32,7 +32,7 @@ const InstagramFeed = () => {
           className="section-title-wrapper !mb-8"
         >
           <span className="section-subtitle">Instagram</span>
-          <h2 className="section-title">Síguenos en @rodherma</h2>
+          <h2 className="section-title">Síguenos en @guitarraschile.rodherma</h2>
           <div className="section-title-line"></div>
         </motion.div>
       </div>
@@ -53,7 +53,7 @@ const InstagramFeed = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <Link 
-                    href="https://instagram.com/rodherma" 
+                    href="https://instagram.com/guitarraschile.rodherma" 
                     target="_blank"
                     className="text-white hover:text-[--primary] transition-colors flex items-center gap-2 text-sm"
                   >
@@ -71,7 +71,7 @@ const InstagramFeed = () => {
 
       <div className="container">
         <Link 
-          href="https://instagram.com/rodherma"
+          href="https://instagram.com/guitarraschile.rodherma"
           target="_blank"
           className="block text-center mt-12 btn btn-outline mx-auto w-fit"
         >
