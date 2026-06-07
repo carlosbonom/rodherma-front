@@ -7,19 +7,32 @@ import { motion } from 'framer-motion';
 
 const categories = [
   { id: 'todas', name: 'Todas' },
-  { id: 'clasicas', name: 'Guitarras Clásicas' },
-  { id: 'acusticas', name: 'Guitarras Acústicas' },
-  { id: 'electroacusticas', name: 'Electroacústicas' },
-  { id: 'portuguesas', name: 'Guitarras Portuguesas' }
+  { id: 'principiante', name: 'Principiante / Estudio' },
+  { id: 'media', name: 'Gama Media / Medio Concierto' },
+  { id: 'profesional', name: 'Profesional / Concierto' },
+  { id: 'acustica', name: 'Acústicas' },
+  { id: 'electroacustica', name: 'Electroacústicas' },
+  { id: 'guitarras', name: 'Guitarras' },
+  { id: 'mandolinas', name: 'Mandolinas' },
+  { id: 'cuatroVenezolano', name: 'Cuatro Venezolano' },
+  { id: 'tresCubano', name: 'Tres Cubano' },
+  { id: 'ukeleleTenor', name: 'Ukelele Tenor' },
+  { id: 'nylon', name: 'Cuerda Nylon' },
+  { id: 'metal', name: 'Cuerda Metálica' },
+  { id: 'tradicional', name: 'Estilo Tradicional' },
+  { id: 'cutaway', name: 'Estilo Cutaway' },
+  { id: 'especial', name: 'Estilo Especial' },
 ];
+
+const guitarSubcategories = ['nylon', 'metal', 'cutaway', 'tradicional', 'especial'];
 
 const products = [
   {
     id: 1,
     sku: 'GC001',
-    name: 'Guitarra-clasica-premium',
-    displayName: 'Guitarra Clásica Premium',
-    category: 'clasicas',
+    name: 'Guitarra-clasica-',
+    displayName: 'Guitarra Clásica',
+    categories: ['guitarras', 'acustica', 'media'],
     price: 1299.99,
     image: '/images/guitarra-1.jpg',
     description: 'Guitarra clásica de alta gama con maderas seleccionadas',
@@ -30,7 +43,7 @@ const products = [
     sku: 'GA001',
     name: 'Guitarra-acustica-profesional',
     displayName: 'Guitarra Acústica Profesional',
-    category: 'acusticas',
+    categories: ['acustica', 'guitarras', 'profesional'],
     price: 1499.99,
     image: '/images/guitarra-2.jpg',
     description: 'Guitarra acústica profesional con un sonido excepcional',
@@ -41,7 +54,7 @@ const products = [
     sku: 'GE001',
     name: 'Guitarra-electroacustica-premium',
     displayName: 'Guitarra Electroacústica Premium',
-    category: 'electroacusticas',
+    categories: ['electroacustica', 'guitarras', 'profesional'],
     price: 1799.99,
     image: '/images/guitarra-3.jpg',
     description: 'Guitarra electroacústica con sistema de amplificación profesional',
@@ -51,12 +64,33 @@ const products = [
 ];
 
 export default function Catalog() {
-  const [selectedCategory, setSelectedCategory] = useState('todas');
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(['todas']);
   const [sortBy, setSortBy] = useState('featured');
+  const toggleCategory = (categoryId: string) => {
+  if (categoryId === 'todas') {
+    setSelectedCategories(['todas']);
+    return;
+  }
 
-  const filteredProducts = products.filter(product => 
-    selectedCategory === 'todas' || product.category === selectedCategory
-  );
+  setSelectedCategories((prev) => {
+    const sinTodas = prev.filter((c) => c !== 'todas');
+    if (sinTodas.includes(categoryId)) {
+      let nuevoResultado = sinTodas.filter((c) => c !== categoryId);
+      if (categoryId === 'guitarras') {
+        nuevoResultado = nuevoResultado.filter((c) => !guitarSubcategories.includes(c));
+      }
+      
+      return nuevoResultado.length === 0 ? ['todas'] : nuevoResultado;
+    } else {
+      return [...sinTodas, categoryId];
+    }
+  });
+};
+
+  const filteredProducts = products.filter(product => {
+  if (selectedCategories.includes('todas')) return true;
+  return selectedCategories.every(catId => product.categories?.includes(catId));
+});
 
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortBy === 'price-asc') return a.price - b.price;
@@ -103,19 +137,26 @@ export default function Catalog() {
           {/* Filters */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-12">
             <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                    selectedCategory === category.id
-                      ? 'bg-orange-500 text-white'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                  }`}
-                >
-                  {category.name}
-                </button>
-              ))}
+              {categories
+                .filter((category) => {
+                  if (guitarSubcategories.includes(category.id)) {
+                    return selectedCategories.includes('guitarras');
+                  }
+                  return true;
+                })
+                .map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => toggleCategory(category.id)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                      selectedCategories.includes(category.id)
+                        ? 'bg-orange-500 text-white'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    }`}
+                  >
+                    {category.name}
+                  </button>
+                ))}
             </div>
             <select
               value={sortBy}
