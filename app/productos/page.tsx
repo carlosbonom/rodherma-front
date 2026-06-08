@@ -28,9 +28,9 @@ const guitarSubcategories = ['nylon', 'metal', 'cutaway', 'tradicional', 'especi
 
 const products = [
   {
-    id: 1,
-    sku: 'GC001',
-    name: 'Guitarra-clasica-',
+    id: 200,
+    sku: 'NN001',
+    name: 'Guitarra-clasica',
     displayName: 'Guitarra Clásica',
     categories: ['guitarras', 'acustica', 'media'],
     price: 1299.99,
@@ -39,8 +39,8 @@ const products = [
     features: ['Tapa de cedro', 'Diapasón de ébano', 'Acabado natural']
   },
   {
-    id: 2,
-    sku: 'GA001',
+    id: 201,
+    sku: 'NN000',
     name: 'Guitarra-acustica-profesional',
     displayName: 'Guitarra Acústica Profesional',
     categories: ['acustica', 'guitarras', 'profesional'],
@@ -50,8 +50,8 @@ const products = [
     features: ['Tapa de abeto', 'Cuerpo de palosanto', 'Pastilla incorporada']
   },
   {
-    id: 3,
-    sku: 'GE001',
+    id: 202,
+    sku: 'NN001',
     name: 'Guitarra-electroacustica-premium',
     displayName: 'Guitarra Electroacústica Premium',
     categories: ['electroacustica', 'guitarras', 'profesional'],
@@ -59,6 +59,160 @@ const products = [
     image: '/images/guitarra-3.jpg',
     description: 'Guitarra electroacústica con sistema de amplificación profesional',
     features: ['Sistema Fishman', 'Ecualizador de 3 bandas', 'Afinador incorporado']
+  },
+  {
+    id: 1,
+    sku: 'GA001',
+    name: 'Guitarra-acústica-principiante',
+    displayName: 'Guitarra Acústica Principiante',
+    categories: ['guitarras', 'acustica', 'principiante', 'tradicional', 'nylon'],
+    price: 139990,
+    image: '/images/intento-2.png',
+    description: null,
+    features: []
+  },
+  {
+    id: 2,
+    sku: 'GA002',
+    name: 'Guitarra-acústica-principiante',
+    displayName: 'Guitarra Acústica Principiante',
+    categories: ['guitarras', 'acustica', 'principiante', 'tradicional', 'nylon'],
+    price: 139990,
+    image: 'null',
+    description: null,
+    features: []
+  },
+  {
+    id: 3,
+    sku: 'GA003',
+    name: 'Guitarra-acústica-principiante',
+    displayName: 'Guitarra Acústica Principiante',
+    categories: ['guitarras', 'acustica', 'principiante', 'tradicional', 'nylon'],
+    price: 139990,
+    image: 'null',
+    description: null,
+    features: []
+  },
+  {
+    id: 4,
+    sku: 'GA004',
+    name: 'Guitarra-acústica-principiante-roseta',
+    displayName: 'Guitarra Acústica Principiante con Roseta de Flores',
+    categories: ['guitarras', 'acustica', 'principiante', 'tradicional', 'nylon'],
+    price: 149990,
+    image: 'null',
+    description: null,
+    features: []
+  },
+  {
+    id: 5,
+    sku: 'GEP001',
+    name: 'Guitarra-electroacústica-principiante',
+    displayName: 'Guitarra Electroacústica Principiante',
+    categories: ['guitarras', 'electroacustica', 'principiante', 'tradicional', 'nylon'],
+    price: 209990,
+    image: 'null',
+    description: null,
+    features: []
+  },
+  {
+    id: 6,
+    sku: 'GEP002',
+    name: 'Guitarra-electroacústica-principiante',
+    displayName: 'Guitarra Electroacústica Principiante',
+    categories: ['guitarras', 'electroacustica', 'principiante', 'tradicional', 'nylon'],
+    price: 229990,
+    image: 'null',
+    description: null,
+    features: []
+  },
+  {
+    id: 7,
+    sku: 'GC001',
+    name: 'Guitarra-cutaway-media',
+    displayName: 'Guitarra Cutaway Media',
+    categories: ['guitarras', 'acustica', 'media', 'cutaway', 'nylon'],
+    price: 289990,
+    image: 'null',
+    description: null,
+    features: []
+  },
+  {
+    id: 8,
+    sku: 'GC002',
+    name: 'Guitarra-cutaway-media',
+    displayName: 'Guitarra Cutaway Media',
+    categories: ['guitarras', 'acustica', 'media', 'cutaway', 'nylon'],
+    price: 289990,
+    image: 'null',
+    description: null,
+    features: []
+  },
+  {
+    id: 9,
+    sku: 'GC003',
+    name: 'Guitarra-cutaway-media',
+    displayName: 'Guitarra Cutaway Media',
+    categories: ['guitarras', 'acustica', 'media', 'cutaway', 'nylon'],
+    price: 289990,
+    image: 'null',
+    description: null,
+    features: []
+  },
+  {
+    id: 10,
+    sku: 'GCE001',
+    name: 'Guitarra-cutaway-media-electroacústica',
+    displayName: 'Guitarra Cutaway Media Electroacústica',
+    categories: ['guitarras', 'electroacustica', 'media', 'cutaway', 'nylon'],
+    price: 349990,
+    image: 'null',
+    description: null,
+    features: []
+  },
+  {
+    id: 11,
+    sku: 'GCE002',
+    name: 'Guitarra-cutaway-media-electroacústica',
+    displayName: 'Guitarra Cutaway Media Electroacústica',
+    categories: ['guitarras', 'electroacustica', 'media', 'cutaway', 'nylon'],
+    price: 369990,
+    image: 'null',
+    description: null,
+    features: []
+  },
+  {
+    id: 12,
+    sku: 'GCE002',
+    name: 'Guitarra-cutaway-media-electroacústica',
+    displayName: 'Guitarra Cutaway Media Cuerdas Metálicas',
+    categories: ['guitarras', 'acustica', 'media', 'cutaway', 'metalica'],
+    price: 329990,
+    image: 'null',
+    description: null,
+    features: []
+  },
+  {
+    id: 13,
+    sku: 'GCE002',
+    name: 'Guitarra-cutaway-media-electroacústica',
+    displayName: 'Guitarra Cutaway Media Cuerdas Metálicas',
+    categories: ['guitarras', 'acustica', 'media', 'cutaway', 'metalica'],
+    price: 329990,
+    image: 'null',
+    description: null,
+    features: []
+  },
+  {
+    id: 14,
+    sku: 'GCE002',
+    name: 'Guitarra-cutaway-media-electroacústica',
+    displayName: 'Guitarra Cutaway Media Cuerdas Metálicas',
+    categories: ['guitarras', 'acustica', 'media', 'cutaway', 'metalica'],
+    price: 329990,
+    image: 'null',
+    description: null,
+    features: []
   },
   // Agrega más productos aquí...
 ];
