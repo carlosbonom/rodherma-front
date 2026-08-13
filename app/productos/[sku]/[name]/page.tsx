@@ -7,22 +7,26 @@ type Props = {
     sku: string;
     name: string;
   }>;
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
+  // Limpia la URL para el título (ej: "guitarra-clasica" -> "guitarra clasica")
+  const decodedName = decodeURIComponent(resolvedParams.name).replace(/-/g, ' ');
+
   return {
-    title: `${resolvedParams.name} | RodherMa`,
-    description: `Detalles del producto ${resolvedParams.name}`,
+    title: `${decodedName} | RodherMa`,
+    description: `Detalles del producto ${decodedName}`,
   };
 }
 
-export default async function ProductPage({ params, searchParams }: Props) {
+export default async function ProductPage({ params }: Props) {
   const resolvedParams = await params;
+
   return (
-    <Suspense fallback={<div>Cargando...</div>}>
-      <ProductClient params={resolvedParams} />
+    <Suspense fallback={<div className="p-10 text-center">Cargando producto...</div>}>
+      {/* Le pasamos directamente el SKU a tu cliente */}
+      <ProductClient sku={resolvedParams.sku} />
     </Suspense>
   );
-} 
+}

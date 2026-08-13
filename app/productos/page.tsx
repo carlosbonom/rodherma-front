@@ -26,7 +26,7 @@ const categories = [
 
 const guitarSubcategories = ['nylon', 'metal', 'cutaway', 'tradicional', 'especial'];
 
-const products = [
+export const products = [
   {
     id: 200,
     sku: 'NN001',

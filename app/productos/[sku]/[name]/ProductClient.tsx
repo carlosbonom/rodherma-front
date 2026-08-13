@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { products } from '@/app/productos/page';
 
 // Componente del Modal de Cotización
 const QuoteModal = ({ isOpen, onClose, productName }: { isOpen: boolean; onClose: () => void; productName: string }) => {
@@ -177,37 +178,47 @@ const StarRating = ({ rating }: { rating: number }) => {
 };
 
 type ProductClientProps = {
-  params: {
-    sku: string;
-    name: string;
-  };
+  sku: string;
 };
 
-export default function ProductClient({ params }: ProductClientProps) {
+export default function ProductClient({ sku }: ProductClientProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('descripcion');
 
-  // Aquí normalmente harías una llamada a tu API para obtener los detalles del producto
-  // usando params.sku y params.name
+// Buscamos el instrumento en la lista usando el SKU recibido
+  const foundProduct = products.find((p) => p.sku === sku);
+
+  // Si el SKU no coincide con ningún producto
+  if (!foundProduct) {
+    return (
+      <div className="min-h-screen pt-32 text-center">
+        <h1 className="text-2xl font-bold text-gray-800">Producto no encontrado</h1>
+        <p className="text-gray-500 mt-2">El código SKU "{sku}" no existe.</p>
+        <Link href="/productos" className="text-orange-500 underline mt-4 inline-block">
+          Volver a la tienda
+        </Link>
+      </div>
+    );
+  }
+
+// Mapeamos los datos reales del producto
   const product = {
-    name: 'Guitarra acustica 2',
-    price: 999999,
+    name: foundProduct.name,
+    price: foundProduct.price,
     rating: 5.0,
-    description: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.',
-    availability: 'Disponible en 30 dias',
-    installments: '12 cuotas sin interes',
-    maxPerOrder: 'Maximo 2 por pedido',
-    images: [
-      '/images/guitarra-1.jpg',
-      '/images/guitarra-2.jpg',
-      '/images/guitarra-3.jpg'
-    ],
-    characteristics: [
-      'Cuerpo de caoba',
-      'Diapasón de palisandro',
-      'Trastes de níquel',
-      'Cuerdas de acero'
-    ]
+    description: foundProduct.description || 'Instrumento de alta calidad fabricado por Rodherma.',
+    availability: 'Disponible para entrega o despacho',
+    installments: 'Hasta 12 cuotas sin interés',
+    maxPerOrder: 'Máximo 2 por pedido',
+    // Usamos foundProduct.image en un arreglo para mantener compatibilidad con la galería
+    images: [foundProduct.image], 
+    characteristics: foundProduct.features && foundProduct.features.length > 0 
+      ? foundProduct.features 
+      : [
+          'Garantía oficial Rodherma',
+          'Afinación y calibración de fábrica',
+          'Apta para músicos principiantes y avanzados'
+        ]
   };
 
   return (
@@ -261,7 +272,7 @@ export default function ProductClient({ params }: ProductClientProps) {
             <StarRating rating={product.rating} />
             
             <div className="mt-6">
-              <span className="text-4xl font-bold">${product.price.toLocaleString()}</span>
+              <span className="text-4xl font-bold">${product.price.toLocaleString('es-CL')}</span>
             </div>
 
             <div className="mt-6 space-y-2 text-indigo-600">
