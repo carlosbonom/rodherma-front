@@ -67,7 +67,13 @@ export const products = [
     displayName: 'Guitarra Acústica Gama Principiante',
     categories: ['guitarras', 'acustica', 'principiante', 'tradicional', 'nylon'],
     price: 139990,
-    image: '/images/intento-2.png',
+    image: '/images/Cutaway1.png',
+    images: [
+      "/images/Cutaway1.png",
+      "/images/Cutaway2.png",
+      "/images/Cutaway3.png",
+      "/images/Cutaway4.png"
+    ],
     description: null,
     features: []
   },
@@ -885,8 +891,8 @@ export default function Catalog() {
               >
                 <div className="relative h-64">
                   <Image
-                    src={product.image}
-                    alt={product.displayName}
+                    src={product.image || "/images/placeholder.jpg"}
+                    alt={product.displayName || "Guitarra"}
                     fill
                     className="object-cover"
                   />

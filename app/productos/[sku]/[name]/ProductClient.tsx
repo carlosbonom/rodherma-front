@@ -211,7 +211,7 @@ export default function ProductClient({ sku }: ProductClientProps) {
     installments: 'Hasta 12 cuotas sin interés',
     maxPerOrder: 'Máximo 2 por pedido',
     // Usamos foundProduct.image en un arreglo para mantener compatibilidad con la galería
-    images: [foundProduct.image], 
+    images: foundProduct.images || [foundProduct.image],
     characteristics: foundProduct.features && foundProduct.features.length > 0 
       ? foundProduct.features 
       : [
