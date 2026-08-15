@@ -371,7 +371,6 @@ export const products: Product[] = [
     description: null,
     features: []
   },
-
   {
     id: 65,
     sku: 'GAP005',
@@ -385,6 +384,57 @@ export const products: Product[] = [
       '/images/GAP005(2).png',
       '/images/GAP005(3).png',
       '/images/GAP005(4).png',
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 67,
+    sku: 'GAP006',
+    name: 'Guitarra-acústica-profesional',
+    displayName: 'Guitarra Acústica Gama Profesional',
+    categories: ['guitarras', 'acustica', 'profesional', 'tradicional', 'nylon'],
+    price: 489990,
+    image: '/images/GAP006(1).png',
+    images: [
+      '/images/GAP006(1).png',
+      '/images/GAP006(2).png',
+      '/images/GAP006(3).png',
+      '/images/GAP006(4).png',
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 68,
+    sku: 'GAP007',
+    name: 'Guitarra-acústica-profesional',
+    displayName: 'Guitarra Acústica Gama Profesional',
+    categories: ['guitarras', 'acustica', 'profesional', 'tradicional', 'nylon'],
+    price: 489990,
+    image: '/images/GAP007(1).png',
+    images: [
+      '/images/GAP007(1).png',
+      '/images/GAP007(2).png',
+      '/images/GAP007(3).png',
+      '/images/GAP007(4).png',
+      '/images/GAP007(5).png',
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 69,
+    sku: 'GAP008',
+    name: 'Guitarra-acústica-profesional',
+    displayName: 'Guitarra Acústica Gama Profesional',
+    categories: ['guitarras', 'acustica', 'profesional', 'tradicional', 'nylon'],
+    price: 489990,
+    image: '/images/GAP008(1).png',
+    images: [
+      '/images/GAP008(1).png',
+      '/images/GAP008(2).png',
+      '/images/GAP008(3).png',
     ],
     description: null,
     features: []
@@ -555,7 +605,7 @@ export const products: Product[] = [
     features: []
   },
   {
-    id: 64,
+    id: 66,
     sku: 'UP001',
     name: 'Ukelele-tenor-gama-profesional',
     displayName: 'Ukelele Tenor Gama Profesional',
