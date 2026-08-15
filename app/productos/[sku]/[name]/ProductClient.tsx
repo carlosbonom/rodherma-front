@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { products } from '@/app/productos/page';
+import { products } from '@/app/data/products';
 
 // Componente del Modal de Cotización
 const QuoteModal = ({ isOpen, onClose, productName }: { isOpen: boolean; onClose: () => void; productName: string }) => {
@@ -184,6 +184,22 @@ type ProductClientProps = {
 export default function ProductClient({ sku }: ProductClientProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('descripcion');
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomPosition, setZoomPosition] = useState({ x: 50, y: 50 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setZoomPosition({ x, y });
+  };
+
+  const handleMouseEnter = () => setIsZoomed(true);
+  const handleMouseLeave = () => {
+    setIsZoomed(false);
+    setZoomPosition({ x: 50, y: 50 });
+  };
 
 // Buscamos el instrumento en la lista usando el SKU recibido
   const foundProduct = products.find((p) => p.sku === sku);
@@ -242,28 +258,77 @@ export default function ProductClient({ sku }: ProductClientProps) {
       {/* Producto */}
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Galería de imágenes */}
+          {/* Galería de imágenes con Zoom */}
           <div className="space-y-4">
-            <div className="aspect-square relative rounded-lg overflow-hidden">
-              <Image
-                src={product.images[0]}
-                alt={product.name}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="grid grid-cols-3 gap-4">
-              {product.images.map((image, index) => (
-                <div key={index} className="aspect-square relative rounded-lg overflow-hidden cursor-pointer">
-                  <Image
-                    src={image}
-                    alt={`${product.name} ${index + 1}`}
-                    fill
-                    className="object-cover"
-                  />
+            <div 
+              className="aspect-[4/5] sm:aspect-square relative rounded-2xl overflow-hidden bg-gray-50 border border-gray-200/70 p-4 flex items-center justify-center cursor-crosshair select-none group shadow-sm"
+              onMouseMove={handleMouseMove}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div 
+                className="w-full h-full relative transition-transform duration-200 ease-out will-change-transform"
+                style={{
+                  transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
+                  transform: isZoomed ? 'scale(2.5)' : 'scale(1)',
+                }}
+              >
+                <Image
+                  src={product.images[selectedImage] || product.images[0]}
+                  alt={product.name}
+                  fill
+                  priority
+                  className="object-contain p-2 pointer-events-none"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+
+              {/* Badge indicador de zoom activo */}
+              {isZoomed && (
+                <div className="absolute top-3 left-3 bg-orange-500/95 text-white text-[11px] font-semibold px-2.5 py-1 rounded-full shadow-md pointer-events-none backdrop-blur-sm flex items-center gap-1.5 z-10 animate-fade-in">
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                  <span>Zoom 2.5x</span>
                 </div>
-              ))}
+              )}
+
+              {/* Badge de ayuda al pasar el cursor */}
+              <div 
+                className={`absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 shadow-sm border border-gray-200/60 flex items-center gap-1.5 pointer-events-none transition-opacity duration-200 z-10 ${
+                  isZoomed ? 'opacity-0' : 'opacity-100'
+                }`}
+              >
+                <svg className="w-4 h-4 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                </svg>
+                <span>Pasa el cursor para ampliar</span>
+              </div>
             </div>
+            {product.images.length > 1 && (
+              <div className="grid grid-cols-4 gap-3">
+                {product.images.map((image, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => setSelectedImage(index)}
+                    className={`aspect-square relative rounded-xl overflow-hidden cursor-pointer border-2 transition-all bg-gray-50 p-1 flex items-center justify-center ${
+                      selectedImage === index 
+                        ? 'border-orange-500 ring-2 ring-orange-500/20 shadow-sm' 
+                        : 'border-gray-200 hover:border-gray-300 opacity-75 hover:opacity-100'
+                    }`}
+                  >
+                    <Image
+                      src={image}
+                      alt={`${product.name} ${index + 1}`}
+                      fill
+                      className="object-contain p-1"
+                      sizes="(max-width: 768px) 25vw, 15vw"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Información del producto */}
