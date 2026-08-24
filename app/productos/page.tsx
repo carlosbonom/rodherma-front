@@ -123,7 +123,7 @@ export default function Catalog() {
                 viewport={{ once: true }}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
               >
-                <div className="relative h-64">
+                <div className="relative h-[600px]">
                   <Image
                     src={product.image || "/images/placeholder.jpg"}
                     alt={product.displayName || "Guitarra"}

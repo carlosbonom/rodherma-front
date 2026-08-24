@@ -90,7 +90,13 @@ export const products: Product[] = [
     displayName: 'Guitarra Acústica Gama Principiante',
     categories: ['guitarras', 'acustica', 'principiante', 'tradicional', 'nylon'],
     price: 139990,
-    image: 'null',
+    image: '/images/GA002(1).png',
+    images: [
+      "/images/GA002(1).png",
+      "/images/GA002(2).png",
+      "/images/GA002(3).png",
+      "/images/GA002(4).png"
+    ],
     description: null,
     features: []
   },
@@ -101,7 +107,96 @@ export const products: Product[] = [
     displayName: 'Guitarra Acústica Gama Principiante',
     categories: ['guitarras', 'acustica', 'principiante', 'tradicional', 'nylon'],
     price: 139990,
-    image: 'null',
+    image: '/images/GA003(1).png',
+    images: [
+      "/images/GA003(1).png",
+      "/images/GA003(2).png",
+      "/images/GA003(3).png",
+      "/images/GA003(4).png"
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 70,
+    sku: 'GA005',
+    name: 'Guitarra-acústica-principiante',
+    displayName: 'Guitarra Acústica Gama Principiante',
+    categories: ['guitarras', 'acustica', 'principiante', 'tradicional', 'nylon'],
+    price: 139990,
+    image: '/images/GA005(1).png',
+    images: [
+      "/images/GA005(1).png",
+      "/images/GA005(2).png",
+      "/images/GA005(3).png",
+      "/images/GA005(4).png"
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 71,
+    sku: 'GA006',
+    name: 'Guitarra-acústica-principiante',
+    displayName: 'Guitarra Acústica Gama Principiante',
+    categories: ['guitarras', 'acustica', 'principiante', 'tradicional', 'nylon'],
+    price: 139990,
+    image: '/images/GA006(1).png',
+    images: [
+      "/images/GA006(1).png",
+      "/images/GA006(2).png",
+      "/images/GA006(3).png",
+      "/images/GA006(4).png"
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 72,
+    sku: 'GA007',
+    name: 'Guitarra-acústica-principiante',
+    displayName: 'Guitarra Acústica Gama Principiante',
+    categories: ['guitarras', 'acustica', 'principiante', 'tradicional', 'nylon'],
+    price: 139990,
+    image: '/images/GA007(1).png',
+    images: [
+      "/images/GA007(1).png",
+      "/images/GA007(2).png",
+      "/images/GA007(3).png",
+      "/images/GA007(4).png"
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 73,
+    sku: 'GA008',
+    name: 'Guitarra-acústica-principiante',
+    displayName: 'Guitarra Acústica Gama Principiante',
+    categories: ['guitarras', 'acustica', 'principiante', 'tradicional', 'nylon'],
+    price: 139990,
+    image: '/images/GA008(1).png',
+    images: [
+      "/images/GA008(1).png",
+      "/images/GA008(2).png",
+      "/images/GA008(3).png",
+      "/images/GA008(4).png"
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 74,
+    sku: 'GA009',
+    name: 'Guitarra-acústica-principiante',
+    displayName: 'Guitarra Acústica Gama Principiante',
+    categories: ['guitarras', 'acustica', 'principiante', 'tradicional', 'nylon'],
+    price: 139990,
+    image: '/images/GA009(1).png',
+    images: [
+      "/images/GA009(1).png",
+      "/images/GA009(2).png",
+    ],
     description: null,
     features: []
   },
