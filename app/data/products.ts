@@ -248,6 +248,36 @@ export const products: Product[] = [
     features: []
   },
   {
+    id: 78,
+    sku: 'GA013',
+    name: 'Guitarra-acústica-principiante',
+    displayName: 'Guitarra Acústica Gama Principiante',
+    categories: ['guitarras', 'acustica', 'principiante', 'tradicional', 'nylon'],
+    price: 139990,
+    image: '/images/GA013(1).png',
+    images: [
+      "/images/GA013(1).png",
+      "/images/GA013(2).png",
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 79,
+    sku: 'GA014',
+    name: 'Guitarra-acústica-principiante',
+    displayName: 'Guitarra Acústica Gama Principiante',
+    categories: ['guitarras', 'acustica', 'principiante', 'tradicional', 'nylon'],
+    price: 139990,
+    image: '/images/GA014(1).png',
+    images: [
+      "/images/GA014(1).png",
+      "/images/GA014(2).png",
+    ],
+    description: null,
+    features: []
+  },
+  {
     id: 4,
     sku: 'GA004',
     name: 'Guitarra-acústica-principiante-roseta',
@@ -265,7 +295,13 @@ export const products: Product[] = [
     displayName: 'Guitarra Electroacústica Gama Principiante',
     categories: ['guitarras', 'electroacustica', 'principiante', 'tradicional', 'nylon'],
     price: 209990,
-    image: 'null',
+    image: '/images/GEP001(1).png',
+    images: [
+      "/images/GEP001(1).png",
+      "/images/GEP001(2).png",
+      "/images/GEP001(3).png",
+      "/images/GEP001(4).png",
+    ],
     description: null,
     features: []
   },
@@ -276,7 +312,29 @@ export const products: Product[] = [
     displayName: 'Guitarra Electroacústica Gama Principiante',
     categories: ['guitarras', 'electroacustica', 'principiante', 'tradicional', 'nylon'],
     price: 229990,
-    image: 'null',
+    image: '/images/GEP002(1).png',
+    images: [
+      "/images/GEP002(1).png",
+      "/images/GEP002(2).png",
+      "/images/GEP002(3).png",
+      "/images/GEP002(4).png",
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 80,
+    sku: 'GEP003',
+    name: 'Guitarra-electroacústica-principiante',
+    displayName: 'Guitarra Electroacústica Gama Principiante',
+    categories: ['guitarras', 'electroacustica', 'principiante', 'tradicional', 'nylon'],
+    price: 229990,
+    image: '/images/GEP003(1).png',
+    images: [
+      "/images/GEP003(1).png",
+      "/images/GEP003(2).png",
+      "/images/GEP003(3).png",
+    ],
     description: null,
     features: []
   },
@@ -287,7 +345,13 @@ export const products: Product[] = [
     displayName: 'Guitarra Cutaway Gama Media',
     categories: ['guitarras', 'acustica', 'media', 'cutaway', 'nylon'],
     price: 289990,
-    image: 'null',
+    image: '/images/GC001(1).png',
+    images: [
+      "/images/GC001(1).png",
+      "/images/GC001(2).png",
+      "/images/GC001(3).png",
+      "/images/GC001(4).png",
+    ],
     description: null,
     features: []
   },
@@ -298,7 +362,13 @@ export const products: Product[] = [
     displayName: 'Guitarra Cutaway Gama Media',
     categories: ['guitarras', 'acustica', 'media', 'cutaway', 'nylon'],
     price: 289990,
-    image: 'null',
+    image: '/images/GC002(1).png',
+    images: [
+      "/images/GC002(1).png",
+      "/images/GC002(2).png",
+      "/images/GC002(3).png",
+      "/images/GC002(4).png",
+    ],
     description: null,
     features: []
   },
