@@ -457,6 +457,56 @@ export const products: Product[] = [
     features: []
   },
   {
+    id: 85,
+    sku: 'GC008',
+    name: 'Guitarra-cutaway-media',
+    displayName: 'Guitarra Cutaway Gama Media',
+    categories: ['guitarras', 'acustica', 'media', 'cutaway', 'nylon'],
+    price: 289990,
+    image: '/images/GC008(1).png',
+    images: [
+      "/images/GC008(1).png",
+      "/images/GC008(2).png",
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 86,
+    sku: 'GC009',
+    name: 'Guitarra-cutaway-media',
+    displayName: 'Guitarra Cutaway Gama Media',
+    categories: ['guitarras', 'acustica', 'media', 'cutaway', 'nylon'],
+    price: 289990,
+    image: '/images/GC009(1).png',
+    images: [
+      "/images/GC009(1).png",
+      "/images/GC009(2).png",
+      "/images/GC009(3).png",
+      "/images/GC009(4).png",
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 87,
+    sku: 'GC010',
+    name: 'Guitarra-cutaway-media',
+    displayName: 'Guitarra Cutaway Gama Media',
+    categories: ['guitarras', 'acustica', 'media', 'cutaway', 'nylon'],
+    price: 289990,
+    image: '/images/GC010(1).png',
+    images: [
+      "/images/GC010(1).png",
+      "/images/GC010(2).png",
+      "/images/GC010(3).png",
+      "/images/GC010(4).png",
+      "/images/GC010(5).png",
+    ],
+    description: null,
+    features: []
+  },
+  {
     id: 10,
     sku: 'GCE001',
     name: 'Guitarra-cutaway-media-electroacústica',
