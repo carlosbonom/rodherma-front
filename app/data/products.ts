@@ -39,7 +39,7 @@ export const products: Product[] = [
     name: 'Guitarra-clasica',
     displayName: 'Guitarra Clásica',
     categories: ['guitarras', 'acustica', 'media'],
-    price: 1299.99,
+    price: 139990,
     image: '/images/guitarra-1.jpg',
     description: 'Guitarra clásica de alta gama con maderas seleccionadas',
     features: ['Tapa de cedro', 'Diapasón de ébano', 'Acabado natural']
@@ -50,7 +50,7 @@ export const products: Product[] = [
     name: 'Guitarra-acustica-profesional',
     displayName: 'Guitarra Acústica Profesional',
     categories: ['acustica', 'guitarras', 'profesional'],
-    price: 1499.99,
+    price: 139990,
     image: '/images/guitarra-2.jpg',
     description: 'Guitarra acústica profesional con un sonido excepcional',
     features: ['Tapa de abeto', 'Cuerpo de palosanto', 'Pastilla incorporada']
@@ -61,7 +61,7 @@ export const products: Product[] = [
     name: 'Guitarra-electroacustica-premium',
     displayName: 'Guitarra Electroacústica Premium',
     categories: ['electroacustica', 'guitarras', 'profesional'],
-    price: 1799.99,
+    price: 139990,
     image: '/images/guitarra-3.jpg',
     description: 'Guitarra electroacústica con sistema de amplificación profesional',
     features: ['Sistema Fishman', 'Ecualizador de 3 bandas', 'Afinador incorporado']
@@ -1566,7 +1566,13 @@ export const products: Product[] = [
     displayName: 'Mandolina Gama Profesional Acústica',
     categories: ['mandolina', 'acustica', 'profesional', 'nylon'],
     price: 349990,
-    image: 'null',
+    image: '/images/MPA001(1).png',
+    images: [
+      '/images/MPA001(1).png',
+      '/images/MPA001(2).png',
+      '/images/MPA001(3).png',
+      '/images/MPA001(4).png',
+    ],
     description: null,
     features: []
   },
@@ -1577,7 +1583,13 @@ export const products: Product[] = [
     displayName: 'Mandolina Gama Profesional Acústica',
     categories: ['mandolina', 'acustica', 'profesional', 'nylon'],
     price: 349990,
-    image: 'null',
+    image: '/images/MPA002(1).png',
+    images: [
+      '/images/MPA002(1).png',
+      '/images/MPA002(2).png',
+      '/images/MPA002(3).png',
+      '/images/MPA002(4).png',
+    ],
     description: null,
     features: []
   },
@@ -1588,7 +1600,13 @@ export const products: Product[] = [
     displayName: 'Mandolina Gama Profesional Acústica',
     categories: ['mandolina', 'acustica', 'profesional', 'nylon'],
     price: 349990,
-    image: 'null',
+    image: '/images/MPA003(1).png',
+    images: [
+      '/images/MPA003(1).png',
+      '/images/MPA003(2).png',
+      '/images/MPA003(3).png',
+      '/images/MPA003(4).png',
+    ],
     description: null,
     features: []
   },
@@ -1599,7 +1617,109 @@ export const products: Product[] = [
     displayName: 'Mandolina Gama Profesional Acústica',
     categories: ['mandolina', 'acustica', 'profesional', 'nylon'],
     price: 349990,
-    image: 'null',
+    image: '/images/MPA004(1).png',
+    images: [
+      '/images/MPA004(1).png',
+      '/images/MPA004(2).png',
+      '/images/MPA004(3).png',
+      '/images/MPA004(4).png',
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 111,
+    sku: 'MPA005',
+    name: 'Manolina-gama-profesional-acústica',
+    displayName: 'Mandolina Gama Profesional Acústica',
+    categories: ['mandolina', 'acustica', 'profesional', 'nylon'],
+    price: 349990,
+    image: '/images/MPA005(1).png',
+    images: [
+      '/images/MPA005(1).png',
+      '/images/MPA005(2).png',
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 112,
+    sku: 'MPA006',
+    name: 'Manolina-gama-profesional-acústica',
+    displayName: 'Mandolina Gama Profesional Acústica',
+    categories: ['mandolina', 'acustica', 'profesional', 'nylon'],
+    price: 349990,
+    image: '/images/MPA006(1).png',
+    images: [
+      '/images/MPA006(1).png',
+      '/images/MPA006(2).png',
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 113,
+    sku: 'MPA007',
+    name: 'Manolina-gama-profesional-acústica',
+    displayName: 'Mandolina Gama Profesional Acústica',
+    categories: ['mandolina', 'acustica', 'profesional', 'nylon'],
+    price: 349990,
+    image: '/images/MPA007(1).png',
+    images: [
+      '/images/MPA007(1).png',
+      '/images/MPA007(2).png',
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 114,
+    sku: 'MPA008',
+    name: 'Manolina-gama-profesional-acústica',
+    displayName: 'Mandolina Gama Profesional Acústica',
+    categories: ['mandolina', 'acustica', 'profesional', 'nylon'],
+    price: 349990,
+    image: '/images/MPA008(1).png',
+    images: [
+      '/images/MPA008(1).png',
+      '/images/MPA008(2).png',
+      '/images/MPA008(3).png',
+      '/images/MPA008(4).png',
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 115,
+    sku: 'MPA009',
+    name: 'Manolina-gama-profesional-acústica',
+    displayName: 'Mandolina Gama Profesional Acústica',
+    categories: ['mandolina', 'acustica', 'profesional', 'nylon'],
+    price: 349990,
+    image: '/images/MPA009(1).png',
+    images: [
+      '/images/MPA009(1).png',
+      '/images/MPA009(2).png',
+      '/images/MPA009(3).png',
+      '/images/MPA009(4).png',
+    ],
+    description: null,
+    features: []
+  },
+  {
+    id: 116,
+    sku: 'MPA010',
+    name: 'Manolina-gama-profesional-acústica',
+    displayName: 'Mandolina Gama Profesional Acústica',
+    categories: ['mandolina', 'acustica', 'profesional', 'nylon'],
+    price: 349990,
+    image: '/images/MPA010(1).png',
+    images: [
+      '/images/MPA010(1).png',
+      '/images/MPA010(2).png',
+      '/images/MPA010(3).png',
+      '/images/MPA010(4).png',
+    ],
     description: null,
     features: []
   },

@@ -10,7 +10,7 @@ const featuredProducts = [
     sku: 'GA001',
     name: 'Guitarra-acustica-1',
     displayName: 'Guitarra acústica 1',
-    price: 599.99,
+    price: 59999,
     image: '/images/guitarra-1.jpg',
     description: 'Guitarra acústica profesional con acabados premium'
   },
@@ -19,7 +19,7 @@ const featuredProducts = [
     sku: 'GA002',
     name: 'Guitarra-acustica-2',
     displayName: 'Guitarra acústica 2',
-    price: 499.99,
+    price: 49999,
     image: '/images/guitarra-2.jpg',
     description: 'Perfecta para principiantes y estudiantes'
   },
@@ -28,7 +28,7 @@ const featuredProducts = [
     sku: 'GE001',
     name: 'Guitarra-electroacustica',
     displayName: 'Guitarra electroacústica',
-    price: 799.99,
+    price: 79999,
     image: '/images/guitarra-3.jpg',
     description: 'Sonido excepcional con capacidades eléctricas'
   }
@@ -67,7 +67,7 @@ const FeaturedProducts = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              
+
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 group-hover:text-orange-500 transition-colors">
                   {product.displayName}
@@ -79,7 +79,7 @@ const FeaturedProducts = () => {
                   <span className="text-2xl font-light text-orange-500">
                     ${product.price.toLocaleString()}
                   </span>
-                  <Link 
+                  <Link
                     href={`/productos/${product.sku}/${product.name}`}
                     className="relative overflow-hidden px-6 py-2 rounded-full bg-orange-500 text-white font-medium group-hover:bg-orange-600 transition-all duration-300 hover:shadow-lg"
                   >
