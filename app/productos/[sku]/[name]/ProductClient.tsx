@@ -53,7 +53,7 @@ const QuoteModal = ({ isOpen, onClose, productName }: { isOpen: boolean; onClose
                   <h3 className="text-2xl font-bold">Solicitar Cotización</h3>
                   <p className="text-gray-600 mt-2">Completa el formulario para recibir una cotización de {productName}</p>
                 </div>
-                <button 
+                <button
                   onClick={onClose}
                   className="text-gray-400 hover:text-gray-600 transition-colors"
                 >
@@ -62,7 +62,7 @@ const QuoteModal = ({ isOpen, onClose, productName }: { isOpen: boolean; onClose
                   </svg>
                 </button>
               </div>
-              
+
               {/* Contenido con scroll */}
               <div className="flex-1 overflow-y-auto p-6">
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -201,7 +201,7 @@ export default function ProductClient({ sku }: ProductClientProps) {
     setZoomPosition({ x: 50, y: 50 });
   };
 
-// Buscamos el instrumento en la lista usando el SKU recibido
+  // Buscamos el instrumento en la lista usando el SKU recibido
   const foundProduct = products.find((p) => p.sku === sku);
 
   // Si el SKU no coincide con ningún producto
@@ -217,32 +217,32 @@ export default function ProductClient({ sku }: ProductClientProps) {
     );
   }
 
-// Mapeamos los datos reales del producto
+  // Mapeamos los datos reales del producto
   const product = {
     name: foundProduct.name,
     price: foundProduct.price,
     rating: 5.0,
     description: foundProduct.description || 'Instrumento de alta calidad fabricado por Rodherma.',
-    availability: 'Disponible para entrega o despacho',
+    availability: 'Disponible para encargo',
     installments: 'Hasta 12 cuotas sin interés',
     maxPerOrder: 'Máximo 2 por pedido',
     // Usamos foundProduct.image en un arreglo para mantener compatibilidad con la galería
     images: foundProduct.images || [foundProduct.image],
-    characteristics: foundProduct.features && foundProduct.features.length > 0 
-      ? foundProduct.features 
+    characteristics: foundProduct.features && foundProduct.features.length > 0
+      ? foundProduct.features
       : [
-          'Garantía oficial Rodherma',
-          'Afinación y calibración de fábrica',
-          'Apta para músicos principiantes y avanzados'
-        ]
+        'Garantía oficial Rodherma',
+        'Afinación y calibración de fábrica',
+        'Apta para músicos principiantes y avanzados'
+      ]
   };
 
   return (
     <div className="min-h-screen pt-24">
       {/* Modal */}
-      <QuoteModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+      <QuoteModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
         productName={product.name}
       />
 
@@ -260,13 +260,13 @@ export default function ProductClient({ sku }: ProductClientProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Galería de imágenes con Zoom */}
           <div className="space-y-4">
-            <div 
+            <div
               className="aspect-[4/5] sm:aspect-square relative rounded-2xl overflow-hidden bg-gray-50 border border-gray-200/70 p-4 flex items-center justify-center cursor-crosshair select-none group shadow-sm"
               onMouseMove={handleMouseMove}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <div 
+              <div
                 className="w-full h-full relative transition-transform duration-200 ease-out will-change-transform"
                 style={{
                   transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
@@ -294,10 +294,9 @@ export default function ProductClient({ sku }: ProductClientProps) {
               )}
 
               {/* Badge de ayuda al pasar el cursor */}
-              <div 
-                className={`absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 shadow-sm border border-gray-200/60 flex items-center gap-1.5 pointer-events-none transition-opacity duration-200 z-10 ${
-                  isZoomed ? 'opacity-0' : 'opacity-100'
-                }`}
+              <div
+                className={`absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 shadow-sm border border-gray-200/60 flex items-center gap-1.5 pointer-events-none transition-opacity duration-200 z-10 ${isZoomed ? 'opacity-0' : 'opacity-100'
+                  }`}
               >
                 <svg className="w-4 h-4 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
@@ -305,6 +304,12 @@ export default function ProductClient({ sku }: ProductClientProps) {
                 <span>Pasa el cursor para ampliar</span>
               </div>
             </div>
+
+            {/* Aviso sobre optimización digital de imágenes */}
+            <p className="text-xs text-[#a8a3a3] leading-relaxed">
+              ⓘ Aviso: Las imágenes de nuestros productos han sido optimizadas digitalmente con inteligencia artificial para mejorar su iluminación y calidad visual. Esto puede generar ligeras imperfecciones visuales de edición, pero aseguramos que lo que ves en las fotos es exactamente el producto físico y original que te enviaremos.
+            </p>
+
             {product.images.length > 1 && (
               <div className="grid grid-cols-4 gap-3">
                 {product.images.map((image, index) => (
@@ -312,11 +317,10 @@ export default function ProductClient({ sku }: ProductClientProps) {
                     key={index}
                     type="button"
                     onClick={() => setSelectedImage(index)}
-                    className={`aspect-square relative rounded-xl overflow-hidden cursor-pointer border-2 transition-all bg-gray-50 p-1 flex items-center justify-center ${
-                      selectedImage === index 
-                        ? 'border-orange-500 ring-2 ring-orange-500/20 shadow-sm' 
+                    className={`aspect-square relative rounded-xl overflow-hidden cursor-pointer border-2 transition-all bg-gray-50 p-1 flex items-center justify-center ${selectedImage === index
+                        ? 'border-orange-500 ring-2 ring-orange-500/20 shadow-sm'
                         : 'border-gray-200 hover:border-gray-300 opacity-75 hover:opacity-100'
-                    }`}
+                      }`}
                   >
                     <Image
                       src={image}
@@ -335,7 +339,7 @@ export default function ProductClient({ sku }: ProductClientProps) {
           <div>
             <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
             <StarRating rating={product.rating} />
-            
+
             <div className="mt-6">
               <span className="text-4xl font-bold">${product.price.toLocaleString('es-CL')}</span>
             </div>
@@ -351,7 +355,7 @@ export default function ProductClient({ sku }: ProductClientProps) {
             </div>
 
             <div className="mt-8">
-              <button 
+              <button
                 onClick={() => setIsModalOpen(true)}
                 className="w-full btn btn-primary text-lg py-4"
               >
@@ -366,31 +370,28 @@ export default function ProductClient({ sku }: ProductClientProps) {
           <div className="border-b">
             <div className="flex gap-8">
               <button
-                className={`pb-4 font-medium ${
-                  activeTab === 'descripcion'
+                className={`pb-4 font-medium ${activeTab === 'descripcion'
                     ? 'border-b-2 border-orange-500 text-orange-500'
                     : 'text-gray-600'
-                }`}
+                  }`}
                 onClick={() => setActiveTab('descripcion')}
               >
                 Descripcion
               </button>
               <button
-                className={`pb-4 font-medium ${
-                  activeTab === 'caracteristicas'
+                className={`pb-4 font-medium ${activeTab === 'caracteristicas'
                     ? 'border-b-2 border-orange-500 text-orange-500'
                     : 'text-gray-600'
-                }`}
+                  }`}
                 onClick={() => setActiveTab('caracteristicas')}
               >
                 Caracteristicas
               </button>
               <button
-                className={`pb-4 font-medium ${
-                  activeTab === 'comentarios'
+                className={`pb-4 font-medium ${activeTab === 'comentarios'
                     ? 'border-b-2 border-orange-500 text-orange-500'
                     : 'text-gray-600'
-                }`}
+                  }`}
                 onClick={() => setActiveTab('comentarios')}
               >
                 Comentarios

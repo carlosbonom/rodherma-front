@@ -1990,7 +1990,7 @@ export const products: Product[] = [
     sku: 'ESP001',
     name: 'Guitarra-profesional-electroacústica',
     displayName: 'Gama Profesional Electroacústica',
-    categories: ['guitarra', 'electroacustica', 'profesional', 'nylon', 'especial'],
+    categories: ['guitarras', 'electroacustica', 'profesional', 'nylon', 'especial'],
     price: 799990,
     image: '/images/ESP001(1).png',
     images: [
@@ -2007,7 +2007,7 @@ export const products: Product[] = [
     sku: 'ESP002',
     name: 'Guitarra-profesional-electroacústica',
     displayName: 'Gama Profesional Electroacústica',
-    categories: ['guitarra', 'electroacustica', 'profesional', 'nylon', 'especial'],
+    categories: ['guitarras', 'electroacustica', 'profesional', 'nylon', 'especial'],
     price: 669990,
     image: '/images/ESP002(1).png',
     images: [
@@ -2025,7 +2025,7 @@ export const products: Product[] = [
     sku: 'ESP003',
     name: 'Guitarra-cuerdas-metálicas-electroacustica',
     displayName: 'Guitarra Tradicional Cuerdas Metálicas Electroacústica',
-    categories: ['guitarra', 'electroacustica', 'profesional', 'metal', 'especial'],
+    categories: ['guitarras', 'electroacustica', 'profesional', 'metal', 'especial'],
     price: 389990,
     image: '/images/ESP003(1).png',
     images: [
@@ -2043,7 +2043,7 @@ export const products: Product[] = [
     sku: 'ESP004',
     name: 'Guitarra-viajera-estilo-martin',
     displayName: 'Guitarra Viajera Estilo Martin',
-    categories: ['guitarra', 'electroacustica', 'profesional', 'nylon', 'especial'],
+    categories: ['guitarras', 'electroacustica', 'profesional', 'nylon', 'especial'],
     price: 599990,
     image: '/images/ESP004(1).png',
     images: [
@@ -2061,7 +2061,7 @@ export const products: Product[] = [
     sku: 'ESP005',
     name: 'Guitarra-cutaway-glitter',
     displayName: 'Guitarra Cutaway Con Glitter',
-    categories: ['guitarra', 'acustica', 'media', 'nylon', 'especial'],
+    categories: ['guitarras', 'acustica', 'media', 'nylon', 'especial'],
     price: 599990,
     image: '/images/ESP005(1).png',
     images: [
@@ -2078,7 +2078,7 @@ export const products: Product[] = [
     sku: 'ESP006',
     name: 'Guitarra-didáctica-arcoíris',
     displayName: 'Guitarra Didactica Para Niños Diseño Arcoíris',
-    categories: ['guitarra', 'acustica', 'principiante', 'nylon', 'especial'],
+    categories: ['guitarras', 'acustica', 'principiante', 'nylon', 'especial'],
     price: 159990,
     image: '/images/ESP006(1).png',
     images: [
@@ -2113,7 +2113,7 @@ export const products: Product[] = [
     sku: 'ESP008',
     name: 'Guitarra-Folk-Country',
     displayName: 'Guitarra Folk Country',
-    categories: ['acustica', 'profesional', 'metal', 'especial'],
+    categories: ['guitarras', 'acustica', 'profesional', 'metal', 'especial'],
     price: 489990,
     image: '/images/ESP008(1).png',
     images: [
@@ -2130,7 +2130,7 @@ export const products: Product[] = [
     sku: 'ESP009',
     name: 'Guitarra-3/4',
     displayName: 'Guitarra 3/4',
-    categories: ['electroacustica', 'media', 'metal', 'especial'],
+    categories: ['guitarras', 'electroacustica', 'media', 'metal', 'especial'],
     price: 399990,
     image: '/images/ESP009(1).png',
     images: [
@@ -2147,7 +2147,7 @@ export const products: Product[] = [
     sku: 'ESP010',
     name: 'Guitarra-Cutaway-Jacarandá',
     displayName: 'Guitarra Cutaway En Maderas de Jacarandá',
-    categories: ['acustica', 'media', 'nylon', 'especial'],
+    categories: ['guitarras', 'acustica', 'media', 'nylon', 'especial'],
     price: 289990,
     image: '/images/ESP010(1).png',
     images: [

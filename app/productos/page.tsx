@@ -1,40 +1,69 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 
 import { categories, guitarSubcategories, products } from '@/app/data/products';
+import ProductCard from '@/app/components/ProductCard';
 
-export default function Catalog() {
-  const [selectedCategories, setSelectedCategories] = useState<string[]>(['todas']);
+function CatalogContent() {
+  const searchParams = useSearchParams();
+
+  const getInitialCategories = () => {
+    const rawParams = searchParams.getAll('categoria').concat(searchParams.getAll('categorias'));
+    const parsed = rawParams
+      .flatMap((p) => p.split(','))
+      .map((s) => s.trim())
+      .filter((s) => categories.some((c) => c.id === s));
+
+    return parsed.length > 0 ? parsed : ['todas'];
+  };
+
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(getInitialCategories);
   const [sortBy, setSortBy] = useState('featured');
-  const toggleCategory = (categoryId: string) => {
-  if (categoryId === 'todas') {
-    setSelectedCategories(['todas']);
-    return;
-  }
 
-  setSelectedCategories((prev) => {
-    const sinTodas = prev.filter((c) => c !== 'todas');
-    if (sinTodas.includes(categoryId)) {
-      let nuevoResultado = sinTodas.filter((c) => c !== categoryId);
-      if (categoryId === 'guitarras') {
-        nuevoResultado = nuevoResultado.filter((c) => !guitarSubcategories.includes(c));
-      }
-      
-      return nuevoResultado.length === 0 ? ['todas'] : nuevoResultado;
+  useEffect(() => {
+    const rawParams = searchParams.getAll('categoria').concat(searchParams.getAll('categorias'));
+    const parsed = rawParams
+      .flatMap((p) => p.split(','))
+      .map((s) => s.trim())
+      .filter((s) => categories.some((c) => c.id === s));
+
+    if (parsed.length > 0) {
+      setSelectedCategories(parsed);
     } else {
-      return [...sinTodas, categoryId];
+      setSelectedCategories(['todas']);
     }
-  });
-};
+  }, [searchParams]);
+
+  const toggleCategory = (categoryId: string) => {
+    if (categoryId === 'todas') {
+      setSelectedCategories(['todas']);
+      return;
+    }
+
+    setSelectedCategories((prev) => {
+      const sinTodas = prev.filter((c) => c !== 'todas');
+      if (sinTodas.includes(categoryId)) {
+        let nuevoResultado = sinTodas.filter((c) => c !== categoryId);
+        if (categoryId === 'guitarras') {
+          nuevoResultado = nuevoResultado.filter((c) => !guitarSubcategories.includes(c));
+        }
+        
+        return nuevoResultado.length === 0 ? ['todas'] : nuevoResultado;
+      } else {
+        return [...sinTodas, categoryId];
+      }
+    });
+  };
 
   const filteredProducts = products.filter(product => {
-  if (selectedCategories.includes('todas')) return true;
-  return selectedCategories.every(catId => product.categories?.includes(catId));
-});
+    if (selectedCategories.includes('todas')) return true;
+    return selectedCategories.every(catId => product.categories?.includes(catId));
+  });
 
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortBy === 'price-asc') return a.price - b.price;
@@ -115,52 +144,36 @@ export default function Catalog() {
 
           {/* Products Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {sortedProducts.map((product) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-              >
-                <div className="relative h-[600px]">
-                  <Image
-                    src={product.image || "/images/placeholder.jpg"}
-                    alt={product.displayName || "Guitarra"}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{product.displayName}</h3>
-                  <p className="text-gray-600 mb-4 line-clamp-2">{product.description}</p>
-                  <ul className="mb-4 space-y-1">
-                    {product.features.map((feature, index) => (
-                      <li key={index} className="text-sm text-gray-600 flex items-center">
-                        <svg className="w-4 h-4 text-orange-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-orange-500">
-                      ${product.price.toLocaleString()}
-                    </span>
-                    <Link 
-                      href={`/productos/${product.sku}/${product.name}`}
-                      className="btn btn-primary"
-                    >
-                      Ver detalles
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            {sortedProducts.length === 0 ? (
+              <div className="col-span-full text-center py-16">
+                <p className="text-xl text-gray-500 mb-4">No se encontraron productos con los filtros seleccionados.</p>
+                <button
+                  onClick={() => setSelectedCategories(['todas'])}
+                  className="btn btn-primary"
+                >
+                  Ver todos los productos
+                </button>
+              </div>
+            ) : (
+              sortedProducts.map((product, index) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  isPriority={index < 3}
+                />
+              ))
+            )}
           </div>
         </div>
       </section>
     </div>
   );
-} 
+}
+
+export default function Catalog() {
+  return (
+    <Suspense fallback={<div className="min-h-screen pt-24" />}>
+      <CatalogContent />
+    </Suspense>
+  );
+}
